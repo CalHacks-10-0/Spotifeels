@@ -8,8 +8,8 @@ const Papa = require('papaparse');
 const { type } = require('os');
 
 const app = express();
-app.use(express.json())
-const port = 5000
+app.use(express.json());
+const port = 8000;
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -72,7 +72,7 @@ var token;
 const clientID = 'e6f9d062524b4bbc91e48d1f62f5bee7';
 const clientSecret = 'aa0701813c2044e8a208361f2b6eb12b';
 
-var redirect_uri = 'http://localhost:5000/callback';
+var redirect_uri = 'http://localhost:8000/callback';
 
 
 function generateRandomString(length) {
