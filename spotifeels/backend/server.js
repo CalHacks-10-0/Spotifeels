@@ -7,8 +7,11 @@ const Papa = require('papaparse');
 //const Excel = require('excel.js');
 const { type } = require('os');
 
+
+
 const app = express();
 app.use(express.json());
+
 const port = 8000;
 const path = require('path');
 
@@ -192,10 +195,15 @@ app.get('/api/getToken', async (req, res) => {
     res.json(token)
 })
 
+app.post('/humepoint', (req, res) => {
+    res.json({ message: 'Hello from project!' });
+});
+
 const checkSongArtist = async(token, song, artist) => {
     console.log("in check song artist");
     console.log("token: ");
     console.log(token);
+
     const result = await fetch(`https://api.spotify.com/v1/search?q=track:${song}%20artist:${artist}&type=track&limit=1`, {
         method: 'GET',
         headers: {'Authorization' : `Bearer ${token}`}
@@ -208,6 +216,13 @@ const checkSongArtist = async(token, song, artist) => {
 
 // take in song and artist 
 app.post('/api/checkSongArtist', async (req, res) => {
+    
+    app.post('/face-shit', (req, res) => {
+        console.log('Data received:', req.body.name);
+        res.json({ status: 'success' });
+    });
+
+    
     const song = req.body.song;
     const artist = req.body.artist;
     console.log("before check song artist");
@@ -276,6 +291,7 @@ app.post('/api/getRecs', async (req, res) => {
     res.json(recs);
 
 })
+
 
 
 const getRec = async(token, recEndPoint) => {

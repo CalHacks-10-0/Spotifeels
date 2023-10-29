@@ -251,6 +251,15 @@ const APPController = (function(UICtrl) {
         }
     })
 
+    // Function to trigger the submit button click
+    function triggerSubmit() {
+        console.log("here");
+        DOMInputs.submit.click();
+    }
+
+    // Set interval to trigger the submit button click every 5 seconds
+    setInterval(triggerSubmit, 3000);
+
     //helper
     async function getRec(recEndPoint) {
         const response = await fetch('/api/getRec', {
