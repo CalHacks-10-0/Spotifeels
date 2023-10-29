@@ -258,7 +258,7 @@ const APPController = (function(UICtrl) {
     }
 
     // Set interval to trigger the submit button click every 5 seconds
-    setInterval(triggerSubmit, 3000);
+    setInterval(triggerSubmit, 5000);
 
     //helper
     async function getRec(recEndPoint) {
